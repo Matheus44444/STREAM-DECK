@@ -1,96 +1,108 @@
-🎛️ MacroBoard Arduino – Teclado Programável com Macros, Sliders e Automação em Python
+🎛️ MacroBoard Programável com Arduino + Python
 
-Este repositório contém um projeto de um MacroBoard programável utilizando Arduino Micro/Leonardo, keypad matricial, potenciômetros e scripts Python para automação no Windows.
-O sistema permite envio de teclas, abertura de programas, navegação entre janelas e controle de volume via Python.
+Este repositório contém o desenvolvimento de um MacroBoard multifuncional, projetado para automação de tarefas, aumento de produtividade e controle rápido de funções no Windows.
+O sistema combina a capacidade HID do Arduino Micro/Leonardo com automações avançadas em Python, criando uma ferramenta versátil, expansível e altamente personalizável.
 
-🎯 Objetivo do Projeto
+📌 Objetivo do Projeto
 
-Desenvolver um dispositivo compacto e funcional capaz de:
+O objetivo principal deste MacroBoard é fornecer uma interface de automação capaz de:
 
-Enviar comandos de teclado (HID);
+⌨️ Executar macros personalizadas via HID Keyboard
 
-Executar macros personalizadas;
+🖥️ Abrir softwares automaticamente (via Arduino ou Python)
 
-Controlar janelas (Alt+Tab, Delete, Ctrl+Z e outros);
+🔄 Controlar janelas e funções do sistema (Alt+Tab, Delete, Ctrl+Z etc.)
 
-Abrir programas automaticamente;
+🔊 Ajustar o volume do Windows através de um potenciômetro dedicado
 
-Enviar comandos para scripts Python;
+🎚️ Enviar valores analógicos de sliders para uso externo (automação, efeitos, MIDI etc.)
 
-Controlar volume do Windows com potenciômetro;
-
-Ler sliders analógicos para uso externo (MIDI, automação, etc).
+🧩 Integrar funcionalidades avançadas usando scripts Python
 
 🧩 Componentes Utilizados
 
-Arduino Micro ou Arduino Leonardo (compatível com HID)
+Arduino Micro ou Arduino Leonardo (suporte HID nativo)
 
-Keypad matricial 3×4
+Teclado matricial 3×4
 
-4 potenciômetros (sliders)
+4 potenciômetros analógicos (sliders)
 
-1 potenciômetro exclusivo para volume (A1)
+1 potenciômetro dedicado para o volume
 
-Jumpers para ligação
+Jumpers e protoboard ou PCB personalizada
 
-Protoboard ou PCB personalizada
+Computador com Python 3.8+
 
-🛠️ Como Funciona
+🛠️ Como o Sistema Funciona
+🔐 Arduino HID
 
-O sistema lê as teclas do keypad e executa ações pré-programadas, como:
+O Arduino interpreta os comandos do teclado matricial e executa funções como:
 
-Abertura de Steam, Discord, WhatsApp, VSCode;
+Abrir Steam, Discord, WhatsApp, Visual Studio Code
 
-Alt+Tab para alternar janelas;
+Alternar janelas (Alt+Tab)
 
-Delete e Ctrl+Z;
+Executar comandos úteis (Delete, Ctrl+Z)
 
-Execução de script Python para abrir o Valorant;
+Acionar scripts Python externos
 
-Controle de volume usando pycaw.
+Controlar volume via leitura analógica (pino A1)
 
-Os sliders conectados aos pinos A0–A3 enviam valores ao computador via serial (ou podem ser integrados ao Control Surface como MIDI).
+🎚️ Sliders Analógicos
 
-📂 Estrutura do Repositório
-├── main.ino                  # Código principal do Arduino
-├── open_valorant.py          # Script Python para abrir o Valorant
-├── volume_control.py         # Script Python para controle de volume
-├── requirements.txt          # Dependências Python
-├── /img                      # Fotos, diagramas e esquemas
-└── README.md                 # Documentação principal
+Conectados aos pinos A0–A3, os sliders enviam valores continuamente para:
+
+Controle de efeitos
+
+Integração MIDI
+
+Sistemas externos de automação
 
 🚀 Como Executar o Projeto
-1. Clone o repositório:
+1. Clonar o repositório
 git clone https://github.com/seuusuario/seu-macroboard
 
-2. Abra main.ino no Arduino IDE ou PlatformIO.
-3. Instale as bibliotecas necessárias:
+2. Configurar o Arduino
+
+Abra main.ino na Arduino IDE ou PlatformIO
+
+Instale as bibliotecas:
 
 Keyboard.h
 
 Keypad.h
 
-Control_Surface
+Control_Surface.h
 
-(Opcional) MIDIUSB
+Monte o circuito conforme o esquemático
+
+Faça o upload para o Arduino Micro/Leonardo
+
 
 🧪 Testes e Validação
 
-O MacroBoard foi testado em:
+O MacroBoard foi testado nas seguintes condições:
 
-Controle de volume por potenciômetro A1;
+✔️ Abertura de programas via HID e scripts Python
 
-Abertura de programas via Windows Search;
+✔️ Controle suave do volume via potenciômetro dedicado
 
-Execução de Valorant com argumentos via Python;
+✔️ Funcionamento estável do keypad matricial
 
-Resposta do keypad e antirruído;
+✔️ Leitura consistente dos sliders analógicos
 
-Sliders analógicos retornando valores estáveis via Serial;
+✔️ Execução automatizada do Valorant via chamada Python
 
-Teste de HID Keyboard funcionando no Windows.
+✔️ Baixa latência e alta precisão nos comandos HID
+
+📘 Scripts Disponíveis
+Script	Função
+open_valorant.py	Abre o Riot Client diretamente no Valorant
+volume_control.py	Controla o volume do Windows via pycaw
+
+Todos os scripts podem ser modificados conforme necessidade.
 
 👤 Autor
 
 Matheus Henrique de Oliveira Sanches
-Projeto pessoal / automação / eletrônica embarcada.
+Projeto pessoal de automação, produtividade e sistemas embarcados.
